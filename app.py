@@ -7,13 +7,12 @@ phoneRegex = re.compile(r'''
 # several forms of numbers, XXX-XXX-XXXX, XXX-XXXX,
 (XXX) XXX-XXXX, XXX-XXXX ext 12345, ext. 12345, x12345
 (
-((\d\d\d) | (\(\d\d\d\)))?          #area code (optional)
-(\s|-)                              #first separator
-\d\d\d                              #first 3 digits
--                                   #separator
-\d\d\d\d                            #last 4 digits
-(((ext(\.)?\s)| x)                  # segment of extension with words, either ext(.) or x
-(\d{2,5}))?                         # segment of extension with numbers for the extension, lenght of 2-5 digits
+(\d{3}|\(\d{3}\))?        #area code (optional)
+(\s|-|\.)?                             #first separator
+\d{3}                             #first 3 digits
+(\s|-|\.)                              #separator
+ \d{4}                            #last 4 digits
+(\s*(ext|x|ext.)\s*\d{2,5})?                #extension 
 )                                   #re.VERBOSE allows for white spaces and comments
 
 ''', re.VERBOSE)
@@ -37,6 +36,10 @@ for phoneNumber in extractedPhone:
 
 # COPY EXTRACTED TEXT TO CLIPBOARD
 results = '\n'.join(allPhoneNumbers) + '\n' + '\n'.join(extractedEmail)
-pyperclip.copy(results)
 
-print("Done")
+if len(results) > 0:
+    pyperclip.copy(results)
+    print('Copied to clipboard:')
+    print('\n'.join(results))
+else:
+    print('No phone numbers or email addresses found.')
