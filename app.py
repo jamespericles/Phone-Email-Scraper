@@ -38,3 +38,5 @@ for phoneNumber in extractedPhone:
 # COPY EXTRACTED TEXT TO CLIPBOARD
 results = '\n'.join(allPhoneNumbers) + '\n' + '\n'.join(extractedEmail)
 pyperclip.copy(results)
+
+print("Done")
