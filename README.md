@@ -14,7 +14,7 @@
 This simple Python application uses regular expressions to extract only the emails and phone numbers from whatever text is copied to the user's clipboard and copy them to the clipboard. This tool is handy for scraping large documents the user may need to locate emails and phone numbers within. Simple copy all the text that you are interested in, run the program while the text is on your clipboard, then paste the final product where needed. 
 
 ### <a name="Installation"></a>Installation
-After downloading the application from this repo, it can be ran within whatever application you prefer to use for python. It was written and tested within IDLE but Termianl should work fine as well.
+After downloading the application from this repo, it can be ran within whatever application you prefer to use for python. Within terminal, navigate to the directory the app is in and run `python3 app.py` to run the application.
 
 ### <a name="Usage"></a>Usage
 
