@@ -3,19 +3,14 @@
 import re, pyperclip
 
 #REGEX FOR PHONE NUMBERS
-phoneRegex = re.compile(r'''
-# several forms of numbers, XXX-XXX-XXXX, XXX-XXXX,
-(XXX) XXX-XXXX, XXX-XXXX ext 12345, ext. 12345, x12345
-(
-(\d{3}|\(\d{3}\))?        #area code (optional)
-(\s|-|\.)?                             #first separator
-\d{3}                             #first 3 digits
-(\s|-|\.)                              #separator
- \d{4}                            #last 4 digits
-(\s*(ext|x|ext.)\s*\d{2,5})?                #extension 
-)                                   #re.VERBOSE allows for white spaces and comments
-
-''', re.VERBOSE)
+phoneRegex = re.compile(r'''(
+    (\d{3}|\(\d{3}\))?                # area code, 3 digits long with or without parens
+    (\s|-|\.)?                        # separator, either ' ' - or . 
+    (\d{3})                           # first 3 digits
+    (\s|-|\.)                         # separator
+    (\d{4})                           # last 4 digits
+    (\s*(ext|x|ext.)\s*(\d{2,5}))?    # extension, either ' ' ext x ext. followed by 2-5 digits
+    )''', re.VERBOSE)
 # REGEX FOR EMAIL ADDRESSES
 emailRegex = re.compile(r'''
 [a-zA-Z0-9_.+-]+  #name portion
