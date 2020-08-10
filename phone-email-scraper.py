@@ -3,7 +3,7 @@
 import re, pyperclip
 
 #REGEX FOR PHONE NUMBERS
-    phoneRegex = re.compile(r'''
+phoneRegex = re.compile(r'''
 # several forms of numbers, XXX-XXX-XXXX, XXX-XXXX,
 (XXX) XXX-XXXX, XXX-XXXX ext 12345, ext. 12345, x12345
 (
@@ -16,13 +16,13 @@ import re, pyperclip
 (\d{2,5}))?                         # segment of extension with numbers for the extension, lenght of 2-5 digits
 )                                   #re.VERBOSE allows for white spaces and comments
 
-''', re.VERBOSE
+''', re.VERBOSE)
 # REGEX FOR EMAIL ADDRESSES
 emailRegex = re.compile(r'''
 [a-zA-Z0-9_.+-]+  #name portion
 @                 #@symbol seperating name and domain
 [a-zA-Z0-9_.+-]+  #domain portion
-''', re.VERBOS
+''', re.VERBOSE)
                             
 # GET TEXT OFF CLIPBOARD
 text = pyperclip.paste()
@@ -31,10 +31,10 @@ text = pyperclip.paste()
 extractedPhone = phoneRegex.findall(text)
 extractedEmail = emailRegex.findall(text)
 
-all PhoneNumbers =[]
+allPhoneNumbers = []
 for phoneNumber in extractedPhone:
-                        allPhoneNumbers.append(phoneNumber[0])
+    allPhoneNumbers.append(phoneNumber[0])
 
 # COPY EXTRACTED TEXT TO CLIPBOARD
-'\n'.join(allPhoneNumbers) + '\n' + '\n'.join(extractedEmail)
+results = '\n'.join(allPhoneNumbers) + '\n' + '\n'.join(extractedEmail)
 pyperclip.copy(results)
