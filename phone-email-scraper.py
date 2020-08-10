@@ -2,18 +2,18 @@
 
 import re, pyperclip
 
-#TODO:
-    # Create REGEX FOR PHONE NUMBERS
-    re.compile(r'''
+#REGEX FOR PHONE NUMBERS
+    phoneRegex = re.compile(r'''
 # several forms of numbers, XXX-XXX-XXXX, XXX-XXXX,
 (XXX) XXX-XXXX, XXX-XXXX ext 12345, ext. 12345, x12345
 
 ((\d\d\d) | (\(\d\d\d\)))?          #area code (optional)
-            #first separator
-            #first 3 digits
-            #separator
-            #last 4 digits
-            # extension (optional)
+(\s|-)                              #first separator
+\d\d\d                              #first 3 digits
+-                                   #separator
+\d\d\d\d                            #last 4 digits
+(((ext(\.)?\s)| x)                  # segment of extension with words, either ext(.) or x
+(\d{2,5}))?                         # segment of extension with numbers for the extension, lenght of 2-5 digits
 
 
 ''', re.VERBOSE
