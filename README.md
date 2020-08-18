@@ -50,4 +50,5 @@ If you have questions regarding this project I can be contacted at the email bel
 james.pericles@aol.com
 
 ### <a name="Github"></a>Github
-[My github homepage](https://github.com/jamespericles) [This projects repository](https://github.com/jamespericles/Phone-Email-Scraper)
+[My github homepage](https://github.com/jamespericles)
+[This projects repository](https://github.com/jamespericles/Phone-Email-Scraper)
