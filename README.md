@@ -47,7 +47,7 @@ SOFTWARE.
 If you have questions regarding this project I can be contacted at the email below.
 
 ### <a name="Questions"></a>Questions
-james.pericles@aol.com
+jamesspericles@gmail.com
 
 ### <a name="Github"></a>Github
 [My github homepage](https://github.com/jamespericles)
